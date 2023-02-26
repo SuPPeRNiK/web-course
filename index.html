@@ -4,134 +4,175 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<link rel="stylesheet" href="style.css">-->
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital@0;1&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet"> 
     <title>lab2</title>
 </head>
-<body>
-    <header>
-        <img src="Sources/Backgrounds/Escape.svg">
-        <nav>
-            <a href="index.html"><span class="a-home">HOME</span></a>
-            <a href="#"><span class="a-categories">CATEGORIES</span></a>
-            <a href="#"><span class="a-about">ABOUT</span></a>
-            <a href="#"><span class="a-contact">CONTACT</span></a>
-        </nav>      
-    </header>
-    <div>
-        <img src="Sources/Backgrounds/header-1section-background.jpg" class="img-header-1section-background">
-        <h1 class="Let's-do-it-together">Let's do it together</h1>
-        <span class="Let's-do-it-together-text">We travel the world in search of stories. Come along for the ride.</span>
-        <button><span class="View-Latest-Posts">View Latest Posts</span></button>
+<body class="main">
+    <div class="top__block">
+        <header class="header">
+            <img class="header__logo" src="Sources/Backgrounds/Escape.svg">
+            <nav class="header__navbar">
+                <a class="header__navbar-elem" href="index.html">HOME</a>
+                <a class="header__navbar-elem" href="#">CATEGORIES</a>
+                <a class="header__navbar-elem" href="#">ABOUT</a>
+                <a class="header__navbar-elem" href="#">CONTACT</a>
+            </nav>      
+        </header>
+        <div class="headline">
+            <h1 class="headline__title">Let's do it together</h1>
+            <p class="headline__text">We travel the world in search of stories. Come along for the ride.</p>
+            <button class="headline__btn"><p class="headline__btn-text">View Latest Posts</p></button>
+        </div>
     </div> 
-        <a href="#">Nature</a>
-        <a href="#">Photography</a>
-        <a href="#">Relaxation</a>
-        <a href="#">Vacation</a>
-        <a href="#">Travel</a>
-        <a href="#">Adventure</a>
+    <div class="main__navbar">   
+        <a class="main__navbar-elem" href="#">Nature</a>
+        <a class="main__navbar-elem" href="#">Photography</a>
+        <a class="main__navbar-elem" href="#">Relaxation</a>
+        <a class="main__navbar-elem" href="#">Vacation</a>
+        <a class="main__navbar-elem" href="#">Travel</a>
+        <a class="main__navbar-elem" href="#">Adventure</a>
     </div>
-    <article>
-        <header>
-            <h2>Featured Posts</h2>
-        </header>
-        <section>   
-            <div>
-                <a href="the-road-ahead.html"><img src="Sources/Backgrounds/the-road-ahead-background.jpg" alt="the-road-ahead-background.jpg"></a>
-                <p>The Road Ahead</p>
-                <p>The Road ahead might be proved - it might not be.</p>
-                <img src="Sources/Authors/Mat-Vogles.svg" alt="Mat-Vogles.svg"><span>Mat Vogles</span> <span>September 25, 2015</span>
+    <div class="content">
+        <article class="content__featured">
+            <header class="content__featured-header">
+                <h2 class="content__featured-header-title">Featured Posts</h2>
+            </header>
+            <img class="content__featured-rect" src="Sources/Backgrounds/Rectangle.jpg">
+            <div class="content__featured-posts">
+                <section class="content__featured-posts-id1">  
+                    <a class="content__featured-posts-id1-link" href="the-road-ahead.html">
+                        <div>
+                            <p class="content__featured-posts-id1-title">The Road Ahead</p>
+                            <p class="content__featured-posts-id1-text">The Road ahead might be proved - it might not be.</p>
+                            <div class="content__featured-posts-id1-inf">
+                                <img class="content__featured-posts-id1-inf-img" src="Sources/Authors/Mat-Vogles.svg" alt="Mat-Vogles.svg">
+                                <span class="content__featured-posts-id1-inf-author">Mat Vogles</span>
+                                <span class="content__featured-posts-id1-inf-date">September 25, 2015</span>
+                            </div>
+                        </div>
+                    </a>
+                </section>
+                <section class="content__featured-posts-id2">   
+                    <div>
+                        <span class="content__featured-posts-id2-adv"><p class="content__featured-posts-id2-adv-text">Adventure</p></span>
+                        <p class="content__featured-posts-id2-title">From Top Down</p>
+                        <p class="content__featured-posts-id2-text">Once a year, go someplace you've never been before.</p>
+                        <div class="content__featured-posts-id2-inf">
+                            <img class="content__featured-posts-id2-inf-img" src="Sources/Authors/William-wong.svg" alt="William-wong.svg">
+                            <span class="content__featured-posts-id2-inf-author">William Wong</span>
+                            <span class="content__featured-posts-id2-inf-date">September 25, 2015</span>
+                        </div>
+                    </div>
+                </section>
+            </div> 
+        </article>
+        <article class="content__most-recent">
+            <header class="content__most-recent-header">
+                <h2 class="content__most-recent-header-title">Most Recent</h2>
+            </header>
+            <img class="content__most-recent-rect" src="Sources/Backgrounds/Rectangle.jpg">
+            <div class="content__most-recent-posts">
+                <section class="content__most-recent-posts-id1">
+                    <div class="content__most-recent-posts-id">
+                        <img class="content__most-recent-posts-id-img" src="Sources/Backgrounds/Still-Stading-background.jpg" alt="Still-Stading-background.jpg">
+                        <div class="content__most-recent-posts-id-main">
+                            <p class="content__most-recent-posts-id-main-title">Still Stading Tall</p>
+                            <p class="content__most-recent-posts-id-main-text">Life begins at the end of your comfort zone.</p>
+                        </div>
+                        <div class="content__most-recent-posts-id-inf">
+                            <img class="content__most-recent-posts-id-inf-img" src="Sources/Authors/William-wong.svg" alt="William-wong.svg">
+                            <span class="content__most-recent-posts-id-inf-author">William Wong</span>
+                            <span class="content__most-recent-posts-id-inf-date">9/25/2015</span>
+                        </div>
+                    </div>
+                </section>
+                <section class="content__most-recent-posts-id2">    
+                    <div class="content__most-recent-posts-id"> 
+                        <img class="content__most-recent-posts-id-img" src="Sources/Backgrounds/Sunny-Side-Up-background.jpg" alt="Sunny-Side-Up-background.jpg">
+                        <div  class="content__most-recent-posts-id-main"">
+                            <p class="content__most-recent-posts-id-main-title">Sunny side up</p>
+                            <p class="content__most-recent-posts-id-main-text">No place is ever as bad as they tell you it's going to be.</p>
+                        </div>
+                        <div class="content__most-recent-posts-id-inf">
+                            <img class="content__most-recent-posts-id-inf-img" src="Sources/Authors/Mat-Vogles.svg" alt="Mat-Vogles.svg">
+                            <span class="content__most-recent-posts-id-inf-author">Mat Vogels</span>
+                            <span class="content__most-recent-posts-id-inf-date">9/25/2015</span>
+                        </div>
+                    </div>
+                </section>
+                <section class="content__most-recent-posts-id3">
+                    <div class="content__most-recent-posts-id">
+                        <img class="content__most-recent-posts-id-img" src="Sources/Backgrounds/Water-Falls-background.jpg" alt="Water-Falls-background.jpg">
+                        <div  class="content__most-recent-posts-id-main">
+                            <p class="content__most-recent-posts-id-main-title">Water Falls</p>
+                            <p class="content__most-recent-posts-id-main-text">We travel not escape life, but for life not to escape us.</p>
+                        </div>
+                        <div class="content__most-recent-posts-id-inf">
+                            <img class="content__most-recent-posts-id-inf-img" src="Sources/Authors/Mat-Vogles.svg" alt="Mat-Vogles.svg">
+                            <span class="content__most-recent-posts-id-inf-author">Mat Vogels</span>
+                            <span class="content__most-recent-posts-id-inf-date">9/25/2015</span>
+                        </div>
+                    </div>
+                </section>
+                <section class="content__most-recent-posts-id4">
+                    <div class="content__most-recent-posts-id">
+                        <img class="content__most-recent-posts-id-img" src="Sources/Backgrounds/Through-the-Mist-background.jpg" alt="Through-the-Mist-background.jpg">
+                        <div  class="content__most-recent-posts-id-main">
+                            <p class="content__most-recent-posts-id-main-title">Through the Mist</p>
+                            <p class="content__most-recent-posts-id-main-text">Travel makes you see what a tiny place you occupy in the world.</p>
+                        </div>
+                        <div class="content__most-recent-posts-id-inf">
+                            <img class="content__most-recent-posts-id-inf-img" src="Sources/Authors/William-wong.svg" alt="William-wong.svg">
+                            <span class="content__most-recent-posts-id-inf-author">William Wong</span>
+                            <span class="content__most-recent-posts-id-inf-date">9/25/2015</span>
+                        </div>
+                    </div>
+                </section>
+                <section class="content__most-recent-posts-id5">
+                    <div class="content__most-recent-posts-id">
+                        <img class="content__most-recent-posts-id-img" src="Sources/Backgrounds/Awaken-Early-background.jpg" alt="Awaken-Early-background.jpg">
+                        <div  class="content__most-recent-posts-id-main">
+                            <p class="content__most-recent-posts-id-main-title">Awaken Early</p>
+                            <p class="content__most-recent-posts-id-main-text">Not all those who wander are lost.</p>
+                        </div>
+                        <div class="content__most-recent-posts-id-inf">
+                            <img class="content__most-recent-posts-id-inf-img" src="Sources/Authors/Mat-Vogles.svg" alt="Mat-Vogles.svg">
+                            <span class="content__most-recent-posts-id-inf-author">Mat Vogels</span>
+                            <span class="content__most-recent-posts-id-inf-date">9/25/2015</span>
+                        </div>
+                    </div>
+                </section>
+                <section class="content__most-recent-posts-id6">
+                    <div class="content__most-recent-posts-id">
+                        <img class="content__most-recent-posts-id-img" src="Sources/Backgrounds/Try-it-Always-background.jpg" alt="Try-it-Always-background.jpg">
+                        <div  class="content__most-recent-posts-id-main">
+                            <p class="content__most-recent-posts-id-main-title">Try it Always</p>
+                            <p class="content__most-recent-posts-id-main-text">The world is a book, and those who do not travel read only one page.</p>
+                        </div>
+                        <div class="content__most-recent-posts-id-inf">
+                            <img class="content__most-recent-posts-id-inf-img" src="Sources/Authors/Mat-Vogles.svg" alt="Mat-Vogles.svg">
+                            <span class="content__most-recent-posts-id-inf-author">Mat Vogels</span>
+                            <span class="content__most-recent-posts-id-inf-date">9/25/2015</span>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </section>
-        <section>   
-            <div>
-                <img src="Sources/Backgrounds/from-top-down-background.jpg" alt="from-top-down-background.jpg">
-                <p><span>Adventure</span><span>From Top Down</span></p>
-                <span>Once a year, go someplace you've never been before.</span>
-                <img src="Sources/Authors/William-wong.svg" alt="William-wong.svg">
-            </div>
-        </section> 
-    </article>
-    <article>
-        <header>
-            <h2>Most Recent</h2>
-        </header>
-        <section>
-            <img src="Sources/Backgrounds/Still-Stading-background.jpg" alt="Still-Stading-background.jpg">
-            <div>
-                <span>Still Stading Tall</span>
-                <span>Life begins at the end of your comfort zone.</span>
-             </div>
-             <div>
-                <img src="Sources/Authors/William-wong.svg" alt="William-wong.svg">
-                <span>William Wong</span><span>9/25/2015</span>
-             </div>
-        </section>
-        <section>    
-            <img src="Sources/Backgrounds/Sunny-Side-Up-background.jpg" alt="Sunny-Side-Up-background.jpg">
-            <div>
-                <span>Sunny side up</span>
-                <span>No place is ever as bad as they tell you it's going to be.</span>
-            </div>
-            <div>
-                <img src="Sources/Authors/Mat-Vogles.svg" alt="Mat-Vogles.svg">
-                <span>Mat Vogels</span><span>9/25/2015</span>
-            </div>
-        </section>
-        <section>
-            <img src="Sources/Backgrounds/Water-Falls-background.jpg" alt="Water-Falls-background.jpg">
-            <div>
-                <span>Water Falls</span>
-                <span>We travel not escape life, but for life not to escape us.</span>
-            </div>
-            <div>
-                <img src="Sources/Authors/Mat-Vogles.svg" alt="Mat-Vogles.svg">
-                <span>Mat Vogels</span><span>9/25/2015</span>
-            </div>
-        </section>
-        <section>
-            <img src="Sources/Backgrounds/Through-the-Mist-background.jpg" alt="Through-the-Mist-background.jpg">
-            <div>
-                <span>Through the Mist</span>
-                <span>Travel makes you see what a tiny place you occupy in the world.</span>
-            </div>
-            <div>
-                <img src="Sources/Authors/William-wong.svg" alt="William-wong.svg">
-                <span>William Wong</span><span>9/25/2015</span>
-            </div>
-        </section>
-        <section>
-            <img src="Sources/Backgrounds/Awaken-Early-background.jpg" alt="Awaken-Early-background.jpg">
-            <div>
-                <span>Awaken Early</span>
-                <span>Not all those who wander are lost.</span>
-            </div>
-            <div>
-                <img src="Sources/Authors/Mat-Vogles.svg" alt="Mat-Vogles.svg">
-                <span>Mat Vogels</span><span>9/25/2015</span>
-            </div>
-        </section>
-        <section>
-            <img src="Sources/Backgrounds/Try-it-Always-background.jpg" alt="Try-it-Always-background.jpg">
-            <div>
-                <span>Try it Always</span>
-                <span>The world is a book, and those who do not travel read only one page.</span>
-            </div>
-            <div>
-                <img src="Sources/Authors/Mat-Vogles.svg" alt="Mat-Vogles.svg">
-                <span>Mat Vogels</span><span>9/25/2015</span>
-            </div>
-        </section>
-    </article>
-    <footer>
-        <img src="Sources/Backgrounds/Escape.svg">
-        <nav>
-            <a href="#">HOME</a>
-            <a href="#">CATEGORIES</a>
-            <a href="#">ABOUT</a>
-            <a href="#">CONTACT</a>
+        </article>
+    </div>
+    <footer class="footer">
+        <img class="footer__logo" src="Sources/Backgrounds/Escape.svg">
+        <nav class="footer__navbar">
+            <a class="footer__navbar-elem" href="#">HOME</a>
+            <a class="footer__navbar-elem" href="#">CATEGORIES</a>
+            <a class="footer__navbar-elem" href="#">ABOUT</a>
+            <a class="footer__navbar-elem" href="#">CONTACT</a>
         </nav>
-        <img src="Sources/Backgrounds/footer-background.jpg">
-        <img src="Sources/Backgrounds/footer-background1.jpg">
     </footer> 
 </body>
 </html>

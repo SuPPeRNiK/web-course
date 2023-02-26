@@ -1,0 +1,385 @@
+.main{
+    margin: 0;
+}
+.top__block{
+    background-image: url(/Sources/Backgrounds/header-1section-background.jpg);
+    background-size: cover;
+    height: 500px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-left: 250px;
+}
+.header__logo{
+    height: 26px;
+    width: 92px;
+    
+}
+.header__navbar{
+    top: 10px;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin-right: 270px;
+}
+.header__navbar-elem{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+    margin: 27px;
+}
+.headline{
+    text-align: center;
+    margin-top: 103px;
+}
+.headline__title{
+    position: center;
+    top: 177px;
+    left: calc(50% - 498px/2);
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 51px;
+    color: rgba(255, 255, 255, 1);
+
+}
+.headline__text{
+    position: center;
+    left: calc(50% - 504px/2);
+    margin-top: 20px;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.63);
+}
+.headline__btn{
+    position: center;
+    left: calc(50% - 167px/2);
+    margin-top: 31px;
+    height: 44px;
+    width: 167px;
+    background: #DD783F;
+    border-radius: 3px;
+    border: none;
+}
+
+.headline__btn-text{
+    left: calc(50% - 105px/2);
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    color: #FFFFFF;
+}
+.main__navbar{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 296px;
+    margin-right: 286px;
+    height: 65px;
+}
+.main__navbar-elem{
+    margin-top: calc(65px/2);
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #768088;
+    text-decoration: none;
+    text-align: center;
+}
+.content{
+    background-color: rgba(247, 247, 247, 1);
+    height: 1255px;
+}
+.content__featured{
+    width: 940px;
+    margin-left: calc(50% - 940px/2);
+}
+.content__featured-posts{
+    display: grid;
+    grid-template-columns: 460px 460px;
+    grid-column-gap: 20px;
+}
+.content__featured-header-title{
+    padding-top: 60px;
+    margin-bottom: 0px;
+    margin-left: calc(50% - 161px/2);
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    letter-spacing: 2px;
+}
+.content__featured-rect{
+    margin-left: calc(50% - 188px/2);
+    margin-top: 16px;
+    margin-bottom: 23px;
+}
+.content__featured-posts-id1{
+    background-image: url(/Sources/Backgrounds/the-road-ahead-background.jpg);
+    width: 460px;
+    height: 280px;
+}
+.content__featured-posts-id2{
+    background-image: url(/Sources/Backgrounds/from-top-down-background.jpg);
+    width: 460px;
+    height: 280px;
+}
+.content__featured-posts-id1-link{
+    text-decoration: none;
+}
+.content__featured-posts-id1-title{
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 157px;
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 30px;
+    color: #FFFFFF;
+}
+.content__featured-posts-id1-text{
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 193px;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 25px;
+    color: rgba(255, 255, 255, 0.7);
+}
+.content__featured-posts-id1-inf-img{
+    width: 26px;
+    height: 26px;
+    padding-left: 20px;
+    padding-top: 235px;
+}
+.content__featured-posts-id1-inf-author{
+    position: absolute;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 35px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 230px;
+    margin-left: 10px;
+}
+.content__featured-posts-id1-inf-date{
+    position: absolute;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 35px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 230px;
+    margin-left: 268px;
+}
+.content__featured-posts-id2-adv{
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 20px;
+    background: #DD783F;
+    border-radius: 2px;
+    height: 26px;
+    width: 87px;
+    text-align: center;
+    
+}
+.content__featured-posts-id2-adv-text{
+    top: 30px;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    margin: 0;
+    margin-top: 6px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+.content__featured-posts-id2-title{
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 157px;
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 30px;
+    color: #FFFFFF;
+}
+.content__featured-posts-id2-text{
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 193px;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 25px;
+    color: rgba(255, 255, 255, 0.7);
+}
+.content__featured-posts-id2-inf-img{
+    width: 26px;
+    height: 26px;
+    padding-left: 20px;
+    padding-top: 235px;
+}
+.content__featured-posts-id2-inf-author{
+    position: absolute;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 35px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 230px;
+    margin-left: 10px;
+}
+.content__featured-posts-id2-inf-date{
+    position: absolute;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 35px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 230px;
+    margin-left: 268px;
+}
+.content__most-recent{
+    width: 940px;
+    margin-left: calc(50% - 940px/2);
+}
+.content__most-recent-header-title{
+    padding-top: 60px;
+    margin-bottom: 0px;
+    margin-left: calc(50% - 136px/2);
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    letter-spacing: 2px;
+}
+.content__most-recent-rect{
+    margin-left: calc(50% - 188px/2);
+    margin-top: 16px;
+}
+.content__most-recent-posts{
+    display: grid;
+    grid-template-columns: 296px 296px 296px;
+    grid-column-gap: 24px;
+}
+.content__most-recent-posts-id{
+    display: grid;
+    margin-top: 25px;
+}
+.content__most-recent-posts-id-img{
+    margin-bottom: 1px;
+}
+.content__most-recent-posts-id-main{
+    margin-top: 0px;
+    height: 93px;  
+    background-color: #fff;
+}
+.content__most-recent-posts-id-main-title{
+    position: absolute;
+    margin-top: 14px;
+    margin-left: 13px;
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: #101315;
+}
+.content__most-recent-posts-id-main-text{
+    margin-top: 41px;
+    margin-left: 13px;
+    margin-right: 13px;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 19px;
+    color: #7A7A7A;
+}
+.content__most-recent-posts-id-inf{
+    height: 48px;
+    margin-top: 1px;
+    background-color: #FCFCFC;
+}
+.content__most-recent-posts-id-inf-img{
+    position: absolute;
+    margin-top: 12px;
+    margin-left: 13px;
+}
+.content__most-recent-posts-id-inf-author{
+    position: absolute;
+    margin-top: 7px;
+    margin-left: 49px;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 35px;
+    color: #999999;
+}
+.content__most-recent-posts-id-inf-date{
+    position: absolute;
+    margin-top: 7px;
+    margin-left: 225px;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 35px;
+    color: #999999;
+}
+.footer{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 250px;
+    background: rgba(35, 47, 56, 0.6);
+    background-image: url(/Sources/Backgrounds/footer-background1.jpg);
+    background-size: cover;
+    height: 89px;
+}
+.footer__logo{
+    height: 26px;
+    width: 92px;
+    margin-top: 31px;
+}
+.footer__navbar{
+    top: 10px;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin-right: 270px;
+    margin-top: 31px;
+}
+.footer__navbar-elem{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+    margin: 27px;
+}
