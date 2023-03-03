@@ -1,0 +1,112 @@
+.main{
+    margin: 0;
+}
+
+.top__block{
+    background:rgb(255, 255, 255, 1);
+    background-size: cover;
+    height: 360px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-left: 250px;
+}
+.header__logo{
+    height: 26px;
+    width: 92px;
+}
+.header__navbar{
+    top: 10px;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin-right: 270px;
+}
+.header__navbar-elem{
+    text-decoration: none;
+    color: rgba(46, 46, 46, 1);
+    margin: 27px;
+}
+.headline{
+    text-align: center;
+    margin-top: 103px;
+}
+.headline__title{
+    position: center;
+    top: 177px;
+    left: calc(50% - 498px/2);
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 51px;
+    color: rgba(46, 46, 46, 1);
+    ;
+
+}
+.headline__text{
+    position: center;
+    left: calc(50% - 504px/2);
+    margin-top: 20px;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 20px;
+    color: rgba(46, 46, 46, 1);
+}
+.content__post-image{
+    width: 100%;
+    height: 534px;
+    background-size: cover;
+}
+.content__post-text{
+    margin-top: 140px;
+    margin-left: 240px;
+    margin-right: 240px;
+    margin-bottom: 135px;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 35px;
+    color: #101315;
+}
+.footer{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 250px;
+    background: rgba(35, 47, 56, 0.6);
+    background-image: url(/Sources/Backgrounds/footer-background1.jpg);
+    background-size: cover;
+    height: 89px;
+}
+.footer__logo{
+    height: 26px;
+    width: 92px;
+    margin-top: 31px;
+}
+.footer__navbar{
+    top: 10px;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin-right: 270px;
+    margin-top: 31px;
+}
+.footer__navbar-elem{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+    margin: 27px;
+}
