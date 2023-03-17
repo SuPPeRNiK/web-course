@@ -7,7 +7,10 @@
     background-size: cover;
     height: 360px;
 }
-
+.block{
+    display: flex;
+    justify-content: space-between;
+}
 .header{
     display: flex;
     justify-content: space-between;
@@ -29,10 +32,16 @@
     text-transform: uppercase;
     margin-right: 270px;
 }
-.header__navbar-elem{
+.navbar__elems{
+    display: flex;
+    list-style: none;
+}
+.navbar__elem{
     text-decoration: none;
-    color: rgba(46, 46, 46, 1);
     margin: 27px;
+}
+.header-elem{
+    color: #2E2E2E;
 }
 .headline{
     text-align: center;
@@ -79,14 +88,84 @@
     line-height: 35px;
     color: #101315;
 }
-.footer{
+.down{
+    margin: 0px;
+}
+.down__background-img{
+    position: absolute;
+    width: 100%; 
+    height: 378px;
+    z-index: -1; 
+}
+.down__header{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    flex-wrap: nowrap;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 0px;
+}
+.header__title{
+    margin-top: 81px;
+    color: rgba(255, 255, 255, 1);
+    width: 158px;
+    height: 30px;   
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+    color: #EFEFEF; 
+}
+.header__rect{
+    position: relative;
+    width: 188px;
+    margin-top: 17px;
+    margin-bottom: 20px;
+}
+.header__submit-form{
+    display: flex;
+    flex-direction: row;
+}
+.submit-form__input{
+    width: 375px;
+    height: 50px;
+    margin-left: 0px;
+    outline: 0;
+    border: none;
+    background: #FFFFFF;
+    border-radius: 3px 0px 0px 3px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    padding-left: 35px;
+}
+.submit-form__button{
+    width: 125px;
+    height: 52px;
+    background: rgba(255, 255, 255, 0.28);
+    border-radius: 0px 3px 3px 0px;
+    border: none;
+    margin-left: 0px;
+    color: #F8F8F8;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+}
+.footer{
+    margin-top: 90px;
     padding-left: 250px;
+    z-index: -1;
     background: rgba(35, 47, 56, 0.6);
-    background-image: url(/Sources/Backgrounds/footer-background1.jpg);
-    background-size: cover;
-    height: 89px;
+    height: 87px;
+}
+.footer-elem{
+    color: rgba(255, 255, 255, 0.6);
 }
 .footer__logo{
     height: 26px;
@@ -103,10 +182,5 @@
     letter-spacing: 0.6px;
     text-transform: uppercase;
     margin-right: 270px;
-    margin-top: 31px;
-}
-.footer__navbar-elem{
-    text-decoration: none;
-    color: rgba(255, 255, 255, 1);
-    margin: 27px;
+    margin-top: 24px;
 }

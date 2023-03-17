@@ -90,13 +90,15 @@
     font-size: 13px;
     color: #FFFFFF;
 }
-.main__navbar{
+
+.main__navbar-elems{
     display: flex;
     justify-content: space-between;
-    margin-left: 296px;
-    margin-right: 286px;
-    height: 65px;
+    list-style: none;
+    margin: 20px auto;
+    width: 847px;
 }
+
 .main__navbar-elem{
     margin-top: calc(65px/2);
     font-family: 'Lora';
@@ -108,10 +110,12 @@
     text-decoration: none;
     text-align: center;
 }
+
 .content{
     background-color: rgba(247, 247, 247, 1);
-    height: 1255px;
+    height: 1255px; 
 }
+
 .content__featured{
     width: 940px;
     margin-left: calc(50% - 940px/2);

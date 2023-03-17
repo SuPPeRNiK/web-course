@@ -11,18 +11,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital@0;1&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet"> 
-    <title>lab3</title>
+    <title>lab4</title>
 </head>
 <body class="main">
     <div class="top__block">
-        <header class="header">
+        <header class="block header">
             <img class="header__logo" src="Sources/Backgrounds/Escape2.svg">
             <nav class="header__navbar">
-                <a class="header__navbar-elem" href="index.html">HOME</a>
-                <a class="header__navbar-elem" href="#">CATEGORIES</a>
-                <a class="header__navbar-elem" href="#">ABOUT</a>
-                <a class="header__navbar-elem" href="#">CONTACT</a>
-            </nav>      
+                <ul class="navbar__elems">
+                    <li><a class="navbar__elem header-elem" href="index.html">HOME</a></li>
+                    <li><a class="navbar__elem header-elem" href="#">CATEGORIES</a></li>
+                    <li><a class="navbar__elem header-elem" href="#">ABOUT</a></li>
+                    <li><a class="navbar__elem header-elem" href="#">CONTACT</a></li>
+                </ul>
+            </nav>
         </header>
         <div class="headline">
             <h1 class="headline__title">The Road Ahead</h1>
@@ -71,14 +73,27 @@
             </span> 
         </section>
     </article>
-    <footer class="footer">
-        <img class="footer__logo" src="Sources/Backgrounds/Escape.svg">
-        <nav class="footer__navbar">
-            <a class="footer__navbar-elem" href="#">HOME</a>
-            <a class="footer__navbar-elem" href="#">CATEGORIES</a>
-            <a class="footer__navbar-elem" href="#">ABOUT</a>
-            <a class="footer__navbar-elem" href="#">CONTACT</a>
-        </nav>
-    </footer>
+    <div class="down">
+        <img class="down__background-img" src="Sources/Backgrounds/footer-background1.jpg" alt="">
+        <div class="down__header">
+            <span class="header__title down-title">Stay in touch</span>
+            <img class="header__rect down-rect" src="Sources/Backgrounds/Rectangle.jpg">
+            <div class="header__submit-form">
+                <input class="submit-form__input" type="email" placeholder="Enter your email address">
+                <button class="submit-form__button">Submit</button>
+            </div>
+        </div>
+        <footer class="block footer">
+            <img class="footer__logo" src="Sources/Backgrounds/Escape.svg">
+            <nav class="footer__navbar">
+                <ul class="navbar__elems">
+                    <li><a class="navbar__elem footer-elem" href="#">HOME</a></li>
+                    <li><a class="navbar__elem footer-elem" href="#">CATEGORIES</a></li>
+                    <li><a class="navbar__elem footer-elem" href="#">ABOUT</a></li>
+                    <li><a class="navbar__elem footer-elem" href="#">CONTACT</a></li>
+                </ul>   
+            </nav>
+        </footer>
+    </div>
 </body>
 </html>
