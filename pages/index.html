@@ -14,185 +14,230 @@
     <title>lab4</title>
 </head>
 <body class="main">
+    {{ range .Top}}
     <div class="top">
-        <img class="top__background-img" src="Sources/Backgrounds/header-1section-background.jpg" alt="header-bg">
+        <img class="top__background-img" src="{{ .Background }}" alt="header-bg">
+        {{ range .Header }}
         <header class="block header">
-            <img class="header__logo" src="Sources/Backgrounds/Escape.svg">
+            <img class="header__logo" src="{{ .Logo }}">
+            {{ range .Navbar }}
             <nav class="header__navbar">
                 <ul class="navbar__elems">
-                    <li><a class="navbar__elem header-elem" href="index.html">HOME</a></li>
-                    <li><a class="navbar__elem header-elem" href="#">CATEGORIES</a></li>
-                    <li><a class="navbar__elem header-elem" href="#">ABOUT</a></li>
-                    <li><a class="navbar__elem header-elem" href="#">CONTACT</a></li>
+                    <li><a class="navbar__elem header-elem" href="index.html">{{ .First }}</a></li>
+                    <li><a class="navbar__elem header-elem" href="#">{{ .Second }}</a></li>
+                    <li><a class="navbar__elem header-elem" href="#">{{ .Third }}</a></li>
+                    <li><a class="navbar__elem header-elem" href="#">{{ .Fourth }}</a></li>
                 </ul>
             </nav>
+            {{ end }}
         </header>
+        {{ end }}
+        {{ range .Headline }}
         <div class="headline">
-            <p class="headline__title">Let's do it together</p>
-            <p class="headline__text">We travel the world in search of stories. Come along for the ride.</p>
-            <button class="headline__btn"><p class="headline__btn-text">View Latest Posts</p></button>
+            <p class="headline__title">{{ .Title }}</p>
+            <p class="headline__text">{{ .Subtitle }}</p>
+            <button class="headline__btn"><p class="headline__btn-text">{{ .Button }}</p></button>
         </div>
-    </div> 
+        {{ end }}
+    </div>
+    {{ end }} 
+    {{ range .MainNavbar }}
     <div class="main__navbar">
         <ul class="main__navbar-elems">  
-            <li><a class="main__navbar-elem" href="#">Nature</a></li>
-            <li><a class="main__navbar-elem" href="#">Photography</a></li>
-            <li><a class="main__navbar-elem" href="#">Relaxation</a></li>
-            <li><a class="main__navbar-elem" href="#">Vacation</a></li>
-            <li><a class="main__navbar-elem" href="#">Travel</a></li>
-            <li><a class="main__navbar-elem" href="#">Adventure</a></li>
+            <li><a class="main__navbar-elem" href="#">{{ .First }}</a></li>
+            <li><a class="main__navbar-elem" href="#">{{ .Second }}</a></li>
+            <li><a class="main__navbar-elem" href="#">{{ .Third }}</a></li>
+            <li><a class="main__navbar-elem" href="#">{{ .Fourth }}</a></li>
+            <li><a class="main__navbar-elem" href="#">{{ .Fiveth }}</a></li>
+            <li><a class="main__navbar-elem" href="#">{{ .Sixth }}</a></li>
         </ul> 
     </div>
+    {{ end }}
+    {{ range .Content }}
     <div class="content">
+        {{ range .FeaturedPosts }}
         <article class="content__featured">
             <header class="content__featured-header">
-                <h2 class="content__featured-header-title">Featured Posts</h2>
+                <h2 class="content__featured-header-title">{{ .Title }}</h2>
             </header>
-            <img class="content__featured-rect" src="Sources/Backgrounds/Rectangle.jpg">
             <div class="content__featured-posts">
-                <section class="content__featured-first-posts">
+                {{ range .Posts }}
+                <section class="content__featured-post">
                     <a class="content__featured-posts-first-link" href="the-road-ahead.html">
+                        {{ range .Post1 }}
                         <div>
-                            <img class="content__featured-posts-background" src="Sources/Backgrounds/the-road-ahead-background.jpg" alt="">
-                            <p class="content__featured-posts-first-title">The Road Ahead</p>
-                            <p class="content__featured-posts-first-text">The Road ahead might be proved - it might not be.</p>
-                            <div class="content__featured-posts-first-inf">
-                                <img class="content__featured-posts-first-inf-img" src="Sources/Authors/Mat-Vogles.svg" alt="Mat-Vogles.svg">
-                                <span class="content__featured-posts-first-inf-author">Mat Vogles</span>
-                                <span class="content__featured-posts-first-inf-date">September 25, 2015</span>
+                            <img class="content__featured-posts-background" src="{{ .Background }}" alt="">
+                            <p class="content__featured-posts-title">{{ .Title }}</p>
+                            <p class="content__featured-posts-text">{{ .Subtitle }}</p>
+                            {{ range .PostInfo }}
+                            <div class="content__featured-posts-inf">
+                                <img class="content__featured-posts-inf-img" src="{{ .Image }}" alt="Mat-Vogles.svg">
+                                <span class="content__featured-posts-inf-author">{{ .Name }}</span>
+                                <span class="content__featured-posts-inf-date">{{ .Date }}</span>
                             </div>
+                            {{ end }}
                         </div>
+                        {{ end }}
                     </a>
                 </section>
-                <section class="content__featured-posts-id2">   
+                <section class="content__featured-post">   
+                    {{ range .Post2 }}
                     <div>
-                        <img class="content__featured-posts-background" src="Sources/Backgrounds/from-top-down-background.jpg" alt="">
+                        <img class="content__featured-posts-background" src="{{ .Background }}" alt="">
                         <span class="content__featured-posts-second-adv"><p class="content__featured-posts-second-adv-text">Adventure</p></span>
-                        <p class="content__featured-posts-second-title">From Top Down</p>
-                        <p class="content__featured-posts-second-text">Once a year, go someplace you've never been before.</p>
-                        <div class="content__featured-posts-second-inf">
-                            <img class="content__featured-posts-second-inf-img" src="Sources/Authors/William-wong.svg" alt="William-wong.svg">
-                            <span class="content__featured-posts-second-inf-author">William Wong</span>
-                            <span class="content__featured-posts-second-inf-date">September 25, 2015</span>
+                        <p class="content__featured-posts-title">{{ .Title }}</p>
+                        <p class="content__featured-posts-text">{{ .Subtitle }}</p>
+                        {{ range .PostInfo }}
+                        <div class="content__featured-posts-inf">
+                            <img class="content__featured-posts-inf-img" src="{{ .Image }}" alt="Mat-Vogles.svg">
+                            <span class="content__featured-posts-inf-author">{{ .Name }}</span>
+                            <span class="content__featured-posts-inf-date">{{ .Date }}</span>
                         </div>
+                        {{ end }}
                     </div>
+                    {{ end }}
                 </section>
+                {{ end }}
             </div> 
         </article>
+        {{ end }}
+        {{ range .MostRecent }}
         <article class="content__most-recent">
             <header class="content__most-recent-header">
-                <h2 class="content__most-recent-header-title">Most Recent</h2>
+                <h2 class="content__most-recent-header-title">{{ .Title }}</h2>
             </header>
-            <img class="content__most-recent-rect" src="Sources/Backgrounds/Rectangle.jpg">
+            {{ range .Posts }}
             <div class="content__most-recent-posts">
-                <section class="content__most-recent-posts-id1">
-                    <div class="content__most-recent-posts-id">
-                        <img class="content__most-recent-posts-id-img" src="Sources/Backgrounds/Still-Stading-background.jpg" alt="Still-Stading-background.jpg">
-                        <div class="content__most-recent-posts-id-main">
-                            <p class="content__most-recent-posts-id-main-title">Still Stading Tall</p>
-                            <p class="content__most-recent-posts-id-main-text">Life begins at the end of your comfort zone.</p>
-                        </div>
-                        <div class="content__most-recent-posts-id-inf">
-                            <img class="content__most-recent-posts-id-inf-img" src="Sources/Authors/William-wong.svg" alt="William-wong.svg">
-                            <span class="content__most-recent-posts-id-inf-author">William Wong</span>
-                            <span class="content__most-recent-posts-id-inf-date">9/25/2015</span>
-                        </div>
+                {{ range .Post1 }}
+                <div class="content__most-recent-post">
+                    <img class="content__most-recent-post-img" src="{{ .Background }}" alt="Still-Stading-background.jpg">
+                    <div class="content__most-recent-post-main">
+                        <p class="content__most-recent-post-main-title">{{ .Title }}</p>
+                        <p class="content__most-recent-post-main-text">{{ .Subtitle }}</p>
                     </div>
-                </section>
-                <section class="content__most-recent-posts-id2">    
-                    <div class="content__most-recent-posts-id"> 
-                        <img class="content__most-recent-posts-id-img" src="Sources/Backgrounds/Sunny-Side-Up-background.jpg" alt="Sunny-Side-Up-background.jpg">
-                        <div  class="content__most-recent-posts-id-main">
-                            <p class="content__most-recent-posts-id-main-title">Sunny side up</p>
-                            <p class="content__most-recent-posts-id-main-text">No place is ever as bad as they tell you it's going to be.</p>
-                        </div>
-                        <div class="content__most-recent-posts-id-inf">
-                            <img class="content__most-recent-posts-id-inf-img" src="Sources/Authors/Mat-Vogles.svg" alt="Mat-Vogles.svg">
-                            <span class="content__most-recent-posts-id-inf-author">Mat Vogels</span>
-                            <span class="content__most-recent-posts-id-inf-date">9/25/2015</span>
-                        </div>
+                    {{ range .PostInfo }}
+                    <div class="content__most-recent-post-inf">
+                        <img class="content__most-recent-post-inf-img" src="{{ .Image }}" alt="William-wong.svg">
+                        <span class="content__most-recent-post-inf-author">{{ .Name }}</span>
+                        <span class="content__most-recent-post-inf-date">{{ .Date }}</span>
                     </div>
-                </section>
-                <section class="content__most-recent-posts-id3">
-                    <div class="content__most-recent-posts-id">
-                        <img class="content__most-recent-posts-id-img" src="Sources/Backgrounds/Water-Falls-background.jpg" alt="Water-Falls-background.jpg">
-                        <div  class="content__most-recent-posts-id-main">
-                            <p class="content__most-recent-posts-id-main-title">Water Falls</p>
-                            <p class="content__most-recent-posts-id-main-text">We travel not escape life, but for life not to escape us.</p>
-                        </div>
-                        <div class="content__most-recent-posts-id-inf">
-                            <img class="content__most-recent-posts-id-inf-img" src="Sources/Authors/Mat-Vogles.svg" alt="Mat-Vogles.svg">
-                            <span class="content__most-recent-posts-id-inf-author">Mat Vogels</span>
-                            <span class="content__most-recent-posts-id-inf-date">9/25/2015</span>
-                        </div>
+                    {{ end }}
+                </div>
+                {{ end }}   
+                {{ range .Post2 }}
+                <div class="content__most-recent-post">
+                    <img class="content__most-recent-post-img" src="{{ .Background }}" alt="Still-Stading-background.jpg">
+                    <div class="content__most-recent-post-main">
+                        <p class="content__most-recent-post-main-title">{{ .Title }}</p>
+                        <p class="content__most-recent-post-main-text">{{ .Subtitle }}</p>
                     </div>
-                </section>
-                <section class="content__most-recent-posts-id4">
-                    <div class="content__most-recent-posts-id">
-                        <img class="content__most-recent-posts-id-img" src="Sources/Backgrounds/Through-the-Mist-background.jpg" alt="Through-the-Mist-background.jpg">
-                        <div  class="content__most-recent-posts-id-main">
-                            <p class="content__most-recent-posts-id-main-title">Through the Mist</p>
-                            <p class="content__most-recent-posts-id-main-text">Travel makes you see what a tiny place you occupy in the world.</p>
-                        </div>
-                        <div class="content__most-recent-posts-id-inf">
-                            <img class="content__most-recent-posts-id-inf-img" src="Sources/Authors/William-wong.svg" alt="William-wong.svg">
-                            <span class="content__most-recent-posts-id-inf-author">William Wong</span>
-                            <span class="content__most-recent-posts-id-inf-date">9/25/2015</span>
-                        </div>
+                    {{ range .PostInfo }}
+                    <div class="content__most-recent-post-inf">
+                        <img class="content__most-recent-post-inf-img" src="{{ .Image }}" alt="William-wong.svg">
+                        <span class="content__most-recent-post-inf-author">{{ .Name }}</span>
+                        <span class="content__most-recent-post-inf-date">{{ .Date }}</span>
                     </div>
-                </section>
-                <section class="content__most-recent-posts-id5">
-                    <div class="content__most-recent-posts-id">
-                        <img class="content__most-recent-posts-id-img" src="Sources/Backgrounds/Awaken-Early-background.jpg" alt="Awaken-Early-background.jpg">
-                        <div  class="content__most-recent-posts-id-main">
-                            <p class="content__most-recent-posts-id-main-title">Awaken Early</p>
-                            <p class="content__most-recent-posts-id-main-text">Not all those who wander are lost.</p>
-                        </div>
-                        <div class="content__most-recent-posts-id-inf">
-                            <img class="content__most-recent-posts-id-inf-img" src="Sources/Authors/Mat-Vogles.svg" alt="Mat-Vogles.svg">
-                            <span class="content__most-recent-posts-id-inf-author">Mat Vogels</span>
-                            <span class="content__most-recent-posts-id-inf-date">9/25/2015</span>
-                        </div>
+                    {{ end }}
+                </div>
+                {{ end }}
+                {{ range .Post3 }}
+                <div class="content__most-recent-post">
+                    <img class="content__most-recent-post-img" src="{{ .Background }}" alt="Still-Stading-background.jpg">
+                    <div class="content__most-recent-post-main">
+                        <p class="content__most-recent-post-main-title">{{ .Title }}</p>
+                        <p class="content__most-recent-post-main-text">{{ .Subtitle }}</p>
                     </div>
-                </section>
-                <section class="content__most-recent-posts-id6">
-                    <div class="content__most-recent-posts-id">
-                        <img class="content__most-recent-posts-id-img" src="Sources/Backgrounds/Try-it-Always-background.jpg" alt="Try-it-Always-background.jpg">
-                        <div  class="content__most-recent-posts-id-main">
-                            <p class="content__most-recent-posts-id-main-title">Try it Always</p>
-                            <p class="content__most-recent-posts-id-main-text">The world is a book, and those who do not travel read only one page.</p>
-                        </div>
-                        <div class="content__most-recent-posts-id-inf">
-                            <img class="content__most-recent-posts-id-inf-img" src="Sources/Authors/Mat-Vogles.svg" alt="Mat-Vogles.svg">
-                            <span class="content__most-recent-posts-id-inf-author">Mat Vogels</span>
-                            <span class="content__most-recent-posts-id-inf-date">9/25/2015</span>
-                        </div>
+                    {{ range .PostInfo }}
+                    <div class="content__most-recent-post-inf">
+                        <img class="content__most-recent-post-inf-img" src="{{ .Image }}" alt="William-wong.svg">
+                        <span class="content__most-recent-post-inf-author">{{ .Name }}</span>
+                        <span class="content__most-recent-post-inf-date">{{ .Date }}</span>
                     </div>
-                </section>
+                    {{ end }}
+                </div>
+                {{ end }}
+                {{ range .Post4 }}
+                <div class="content__most-recent-post">
+                    <img class="content__most-recent-post-img" src="{{ .Background }}" alt="Still-Stading-background.jpg">
+                    <div class="content__most-recent-post-main">
+                        <p class="content__most-recent-post-main-title">{{ .Title }}</p>
+                        <p class="content__most-recent-post-main-text">{{ .Subtitle }}</p>
+                    </div>
+                    {{ range .PostInfo }}
+                    <div class="content__most-recent-post-inf">
+                        <img class="content__most-recent-post-inf-img" src="{{ .Image }}" alt="William-wong.svg">
+                        <span class="content__most-recent-post-inf-author">{{ .Name }}</span>
+                        <span class="content__most-recent-post-inf-date">{{ .Date }}</span>
+                    </div>
+                    {{ end }}
+                </div>
+                {{ end }}
+                {{ range .Post5 }}
+                <div class="content__most-recent-post">
+                    <img class="content__most-recent-post-img" src="{{ .Background }}" alt="Still-Stading-background.jpg">
+                    <div class="content__most-recent-post-main">
+                        <p class="content__most-recent-post-main-title">{{ .Title }}</p>
+                        <p class="content__most-recent-post-main-text">{{ .Subtitle }}</p>
+                    </div>
+                    {{ range .PostInfo }}
+                    <div class="content__most-recent-post-inf">
+                        <img class="content__most-recent-post-inf-img" src="{{ .Image }}" alt="William-wong.svg">
+                        <span class="content__most-recent-post-inf-author">{{ .Name }}</span>
+                        <span class="content__most-recent-post-inf-date">{{ .Date }}</span>
+                    </div>
+                    {{ end }}
+                </div>
+                {{ end }}
+                {{ range .Post6 }}
+                <div class="content__most-recent-post">
+                    <img class="content__most-recent-post-img" src="{{ .Background }}" alt="Still-Stading-background.jpg">
+                    <div class="content__most-recent-post-main">
+                        <p class="content__most-recent-post-main-title">{{ .Title }}</p>
+                        <p class="content__most-recent-post-main-text">{{ .Subtitle }}</p>
+                    </div>
+                    {{ range .PostInfo }}
+                    <div class="content__most-recent-post-inf">
+                        <img class="content__most-recent-post-inf-img" src="{{ .Image }}" alt="William-wong.svg">
+                        <span class="content__most-recent-post-inf-author">{{ .Name }}</span>
+                        <span class="content__most-recent-post-inf-date">{{ .Date }}</span>
+                    </div>
+                    {{ end }}
+                </div>
+                {{ end }}
             </div>
+            {{ end }}
         </article>
+        {{ end }}
     </div>
+    {{ end }}
+    {{ range .Down}}
     <div class="down">
-        <img class="down__background-img" src="Sources/Backgrounds/footer-background1.jpg" alt="">
+        <img class="down__background-img" src="{{ .Background }}" alt="">
+        {{ range .Header }}
         <div class="down__header">
-            <span class="header__title down-title">Stay in touch</span>
-            <img class="header__rect down-rect" src="Sources/Backgrounds/Rectangle.jpg">
+            <span class="header__title">{{ .Title }}</span>
             <div class="header__submit-form">
                 <input class="submit-form__input" type="email" placeholder="Enter your email address">
-                <button class="submit-form__button">Submit</button>
+                <button class="submit-form__button">{{ .Button }}</button>
             </div>
         </div>
+        {{ end }}
+        {{ range .Footer }}
         <footer class="block footer">
-            <img class="footer__logo" src="Sources/Backgrounds/Escape.svg">
+            <img class="footer__logo" src="{{ .Logo }}">
+            {{ range .Navbar }}
             <nav class="footer__navbar">
                 <ul class="navbar__elems">
-                    <li><a class="navbar__elem footer-elem" href="#">HOME</a></li>
-                    <li><a class="navbar__elem footer-elem" href="#">CATEGORIES</a></li>
-                    <li><a class="navbar__elem footer-elem" href="#">ABOUT</a></li>
-                    <li><a class="navbar__elem footer-elem" href="#">CONTACT</a></li>
+                    <li><a class="navbar__elem footer-elem" href="#">{{ .First }}</a></li>
+                    <li><a class="navbar__elem footer-elem" href="#">{{ .Second }}</a></li>
+                    <li><a class="navbar__elem footer-elem" href="#">{{ .Third }}</a></li>
+                    <li><a class="navbar__elem footer-elem" href="#">{{ .Fourth }}</a></li>
                 </ul>   
             </nav>
+            {{ end }}
         </footer>
+        {{ end }}
     </div>
+    {{ end }}
 </body>
 </html>
