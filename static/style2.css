@@ -1,5 +1,10 @@
 .main{
-    margin: 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: calc(50% - 1440px/2);
+    width: 1440px;
+    align-items: center;
+    background-color: rgba(247, 247, 247, 1);
 }
 
 .top__block{
@@ -32,17 +37,22 @@
     text-transform: uppercase;
     margin-right: 270px;
 }
+
+.header__elem{
+    color:rgba(35, 47, 56, 0.6);
+    text-decoration: none;
+}
+
 .navbar__elems{
     display: flex;
     list-style: none;
 }
+
 .navbar__elem{
     text-decoration: none;
     margin: 27px;
 }
-.header-elem{
-    color: #2E2E2E;
-}
+
 .headline{
     text-align: center;
     margin-top: 103px;
@@ -88,15 +98,18 @@
     line-height: 35px;
     color: #101315;
 }
+
 .down{
-    margin: 0px;
+    margin: auto;
 }
+
 .down__background-img{
     position: absolute;
-    width: 100%; 
+    width: 1440px; 
     height: 378px;
     z-index: -1; 
 }
+
 .down__header{
     display: flex;
     flex-direction: column;
@@ -106,8 +119,10 @@
     align-items: center;
     margin-bottom: 0px;
 }
+
 .header__title{
     margin-top: 81px;
+    margin-bottom: 39px;
     color: rgba(255, 255, 255, 1);
     width: 158px;
     height: 30px;   
@@ -118,16 +133,30 @@
     line-height: 30px;
     color: #EFEFEF; 
 }
+
+.header__title::after { 
+    content: "";
+    display: block;
+    width: 188px;
+    height: 1px;
+    Background-color: #DEDEDE;
+    margin-left: -23px;
+    margin-top: 16px;
+    margin-bottom: 22px;
+}
+
 .header__rect{
     position: relative;
     width: 188px;
     margin-top: 17px;
     margin-bottom: 20px;
 }
+
 .header__submit-form{
     display: flex;
     flex-direction: row;
 }
+
 .submit-form__input{
     width: 375px;
     height: 50px;
@@ -143,6 +172,7 @@
     line-height: 14px;
     padding-left: 35px;
 }
+
 .submit-form__button{
     width: 125px;
     height: 52px;
@@ -157,6 +187,7 @@
     font-size: 12px;
     line-height: 14px;
 }
+
 .footer{
     margin-top: 90px;
     padding-left: 250px;
@@ -164,14 +195,13 @@
     background: rgba(35, 47, 56, 0.6);
     height: 87px;
 }
-.footer-elem{
-    color: rgba(255, 255, 255, 0.6);
-}
+
 .footer__logo{
     height: 26px;
     width: 92px;
     margin-top: 31px;
 }
+
 .footer__navbar{
     top: 10px;
     font-family: 'Oxygen';
@@ -183,4 +213,9 @@
     text-transform: uppercase;
     margin-right: 270px;
     margin-top: 24px;
+    text-decoration:  none;
+}
+
+.footer__elem{
+    color:rgba(255, 255, 255, 1)
 }
