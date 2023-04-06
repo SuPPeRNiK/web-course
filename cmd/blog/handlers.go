@@ -4,13 +4,18 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+
+	"github.com/jmoiron/sqlx"
 )
 
 type indexPage struct {
-	Top        []topdata
-	MainNavbar []mainnavdata
-	Content    []contentdata
-	Down       []downdata
+	Top             []topdata
+	MainNavbar      []mainnavdata
+	FeaturedTitle   string
+	FeaturedPost    []featuredpostdata
+	MostRecentTitle string
+	MostRecentPost  []mostrecentpostdata
+	Down            []downdata
 }
 
 // Top
@@ -54,47 +59,22 @@ type mainnavdata struct {
 // !MainNavbar
 // Content
 
-type contentdata struct {
-	FeaturedPosts []featuredcontent
-	MostRecent    []mostrecentcontent
+type featuredpostdata struct {
+	Title       string `db:"title"`
+	Subtitle    string `db:"subtitle"`
+	Author      string `db:"author"`
+	Authorurl   string `db:"author_url"`
+	Publishdate string `db:"publish_date"`
+	Imageurl    string `db:"image_url"`
 }
 
-type featuredcontent struct {
-	Title string
-	Posts []featuredposts
-}
-
-type featuredposts struct {
-	Post1 []featuredpost
-	Post2 []featuredpost
-}
-
-type featuredpost struct {
-	Background string
-	Title      string
-	Subtitle   string
-	PostInfo   []postinfo
-}
-
-type mostrecentcontent struct {
-	Title string
-	Posts []mostrecentposts
-}
-
-type mostrecentposts struct {
-	Post1 []mostrecentpost
-	Post2 []mostrecentpost
-	Post3 []mostrecentpost
-	Post4 []mostrecentpost
-	Post5 []mostrecentpost
-	Post6 []mostrecentpost
-}
-
-type mostrecentpost struct {
-	Background string
-	Title      string
-	Subtitle   string
-	PostInfo   []postinfo
+type mostrecentpostdata struct {
+	Title       string `db:"title"`
+	Subtitle    string `db:"subtitle"`
+	Author      string `db:"author"`
+	Authorurl   string `db:"author_url"`
+	Publishdate string `db:"publish_date"`
+	Imageurl    string `db:"image_url"`
 }
 
 type postinfo struct {
@@ -139,26 +119,46 @@ type postcontentdata struct {
 	P4         string
 }
 
-func index(w http.ResponseWriter, r *http.Request) {
-	ts, err := template.ParseFiles("pages/index.html")
-	if err != nil {
-		http.Error(w, "Internal Server Error", 500)
-		log.Println(err.Error())
-		return
-	}
+func index(db *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
 
-	data := indexPage{
-		Top:        top(),
-		MainNavbar: mainnavbardata(),
-		Content:    content(),
-		Down:       down(),
-	}
+		featuredposts, err := featuredPost(db)
+		if err != nil {
+			http.Error(w, "Error", 500)
+			log.Println(err)
+			return
+		}
 
-	err = ts.Execute(w, data)
-	if err != nil {
-		http.Error(w, "Internal Server Error", 500)
-		log.Println(err.Error())
-		return
+		mostrecent, err := mostrecentPost(db)
+		if err != nil {
+			http.Error(w, "Error", 500)
+			log.Println(err)
+			return
+		}
+
+		ts, err := template.ParseFiles("pages/index.html")
+		if err != nil {
+			http.Error(w, "Internal Server Error", 500)
+			log.Println(err.Error())
+			return
+		}
+
+		data := indexPage{
+			Top:             top(),
+			MainNavbar:      mainnavbardata(),
+			FeaturedTitle:   "Featured Posts",
+			FeaturedPost:    featuredposts,
+			MostRecentTitle: "Most Recent",
+			MostRecentPost:  mostrecent,
+			Down:            down(),
+		}
+
+		err = ts.Execute(w, data)
+		if err != nil {
+			http.Error(w, "Internal Server Error", 500)
+			log.Println(err.Error())
+			return
+		}
 	}
 }
 
@@ -237,221 +237,52 @@ func headline() []headlinedata {
 	}
 }
 
-func content() []contentdata {
-	return []contentdata{
-		{
-			FeaturedPosts: featuredcontents(),
-			MostRecent:    mostrecentcontents(),
-		},
+func featuredPost(db *sqlx.DB) ([]featuredpostdata, error) {
+	const query = `
+		SELECT
+		  title,
+		  subtitle,
+		  author,
+		  author_url,
+		  publish_date,
+		  image_url
+		FROM
+		  post
+		WHERE featured = 1
+	`
+
+	var featuredposts []featuredpostdata
+
+	err := db.Select(&featuredposts, query)
+	if err != nil {
+		return nil, err
 	}
+
+	return featuredposts, nil
 }
 
-func featuredcontents() []featuredcontent {
-	return []featuredcontent{
-		{
-			Title: "Futured Posts",
-			Posts: featuredcontentposts(),
-		},
-	}
-}
+func mostrecentPost(db *sqlx.DB) ([]mostrecentpostdata, error) {
+	const query = `
+		SELECT
+		  title,
+		  subtitle,
+		  author,
+		  author_url,
+		  publish_date,
+		  image_url
+		FROM
+		  post
+		WHERE featured = 0
+	`
 
-func featuredcontentposts() []featuredposts {
-	return []featuredposts{
-		{
-			Post1: featuredpost_id1(),
-			Post2: featuredpost_id2(),
-		},
-	}
-}
+	var mostrecent []mostrecentpostdata
 
-func featuredpost_id1() []featuredpost {
-	return []featuredpost{
-		{
-			Background: "../static/Sources/Backgrounds/the-road-ahead-background.jpg",
-			Title:      "The Road Ahead",
-			Subtitle:   "The road ahead might be paved - it might not be.",
-			PostInfo:   featured_postinfo_id1(),
-		},
+	err := db.Select(&mostrecent, query)
+	if err != nil {
+		return nil, err
 	}
-}
 
-func featuredpost_id2() []featuredpost {
-	return []featuredpost{
-		{
-			Background: "../static/Sources/Backgrounds/from-top-down-background.jpg",
-			Title:      "From Top Down",
-			Subtitle:   "Once a year, go someplace you’ve never been before.",
-			PostInfo:   featured_postinfo_id2(),
-		},
-	}
-}
-
-func featured_postinfo_id1() []postinfo {
-	return []postinfo{
-		{
-			Image: "../static/Sources/Authors/Mat-Vogles.svg",
-			Name:  "Mat Vogles",
-			Date:  "September 25, 2015",
-		},
-	}
-}
-
-func featured_postinfo_id2() []postinfo {
-	return []postinfo{
-		{
-			Image: "../static/Sources/Authors/Mat-Vogles.svg",
-			Name:  "Mat Vogles",
-			Date:  "September 25, 2015",
-		},
-	}
-}
-
-func mostrecentcontents() []mostrecentcontent {
-	return []mostrecentcontent{
-		{
-			Title: "Most Recent",
-			Posts: mostrecentcontentposts(),
-		},
-	}
-}
-
-func mostrecentcontentposts() []mostrecentposts {
-	return []mostrecentposts{
-		{
-			Post1: mostrecentpost_id1(),
-			Post2: mostrecentpost_id2(),
-			Post3: mostrecentpost_id3(),
-			Post4: mostrecentpost_id4(),
-			Post5: mostrecentpost_id5(),
-			Post6: mostrecentpost_id6(),
-		},
-	}
-}
-
-func mostrecentpost_id1() []mostrecentpost {
-	return []mostrecentpost{
-		{
-			Background: "../static/Sources/Backgrounds/Still-Stading-background.jpg",
-			Title:      "Still Standing Tall",
-			Subtitle:   "Life begins at the end of your comfort zone.",
-			PostInfo:   mostrecent_postinfo_id1(),
-		},
-	}
-}
-
-func mostrecentpost_id2() []mostrecentpost {
-	return []mostrecentpost{
-		{
-			Background: "../static/Sources/Backgrounds/Sunny-Side-Up-background.jpg",
-			Title:      "Sunny Side Up",
-			Subtitle:   "No place is ever as bad as they tell you it’s going to be.",
-			PostInfo:   mostrecent_postinfo_id2(),
-		},
-	}
-}
-
-func mostrecentpost_id3() []mostrecentpost {
-	return []mostrecentpost{
-		{
-			Background: "../static/Sources/Backgrounds/Water-Falls-background.jpg",
-			Title:      "Water Falls",
-			Subtitle:   "We travel not to escape life, but for life not to escape us.",
-			PostInfo:   mostrecent_postinfo_id3(),
-		},
-	}
-}
-
-func mostrecentpost_id4() []mostrecentpost {
-	return []mostrecentpost{
-		{
-			Background: "../static/Sources/Backgrounds/Through-the-Mist-background.jpg",
-			Title:      "Through the Mist",
-			Subtitle:   "Travel makes you see what a tiny place you occupy in the world.",
-			PostInfo:   mostrecent_postinfo_id4(),
-		},
-	}
-}
-
-func mostrecentpost_id5() []mostrecentpost {
-	return []mostrecentpost{
-		{
-			Background: "../static/Sources/Backgrounds/Awaken-Early-background.jpg",
-			Title:      "Awaken Early",
-			Subtitle:   "Not all those who wander are lost.",
-			PostInfo:   mostrecent_postinfo_id5(),
-		},
-	}
-}
-
-func mostrecentpost_id6() []mostrecentpost {
-	return []mostrecentpost{
-		{
-			Background: "../static/Sources/Backgrounds/Try-it-Always-background.jpg",
-			Title:      "Try it Always",
-			Subtitle:   "The world is a book, and those who do not travel read only one page.",
-			PostInfo:   mostrecent_postinfo_id6(),
-		},
-	}
-}
-
-func mostrecent_postinfo_id1() []postinfo {
-	return []postinfo{
-		{
-			Image: "../static/Sources/Authors/William-wong.svg",
-			Name:  "William Wang",
-			Date:  "9/25/2015",
-		},
-	}
-}
-
-func mostrecent_postinfo_id2() []postinfo {
-	return []postinfo{
-		{
-			Image: "../static/Sources/Authors/Mat-Vogles.svg",
-			Name:  "Mat Vogles",
-			Date:  "9/25/2015",
-		},
-	}
-}
-
-func mostrecent_postinfo_id3() []postinfo {
-	return []postinfo{
-		{
-			Image: "../static/Sources/Authors/Mat-Vogles.svg",
-			Name:  "Mat Vogles",
-			Date:  "9/25/2015",
-		},
-	}
-}
-
-func mostrecent_postinfo_id4() []postinfo {
-	return []postinfo{
-		{
-			Image: "../static/Sources/Authors/William-wong.svg",
-			Name:  "William Wang",
-			Date:  "9/25/2015",
-		},
-	}
-}
-
-func mostrecent_postinfo_id5() []postinfo {
-	return []postinfo{
-		{
-			Image: "../static/Sources/Authors/Mat-Vogles.svg",
-			Name:  "Mat Vogles",
-			Date:  "9/25/2015",
-		},
-	}
-}
-
-func mostrecent_postinfo_id6() []postinfo {
-	return []postinfo{
-		{
-			Image: "../static/Sources/Authors/Mat-Vogles.svg",
-			Name:  "Mat Vogles",
-			Date:  "9/25/2015",
-		},
-	}
+	return mostrecent, nil
 }
 
 func down() []downdata {

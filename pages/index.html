@@ -23,7 +23,7 @@
             {{ range .Navbar }}
             <nav class="header__navbar">
                 <ul class="navbar__elems">
-                    <li><a class="navbar__elem header-elem" href="index.html">{{ .First }}</a></li>
+                    <li><a class="navbar__elem header-elem" href="/home">{{ .First }}</a></li>
                     <li><a class="navbar__elem header-elem" href="#">{{ .Second }}</a></li>
                     <li><a class="navbar__elem header-elem" href="#">{{ .Third }}</a></li>
                     <li><a class="navbar__elem header-elem" href="#">{{ .Fourth }}</a></li>
@@ -53,163 +53,52 @@
         </ul> 
     </div>
     {{ end }}
-    {{ range .Content }}
     <div class="content">
-        {{ range .FeaturedPosts }}
         <article class="content__featured">
             <header class="content__featured-header">
-                <h2 class="content__featured-header-title">{{ .Title }}</h2>
+                <h2 class="content__featured-header-title">{{ .FeaturedTitle }}</h2>
             </header>
             <div class="content__featured-posts">
-                {{ range .Posts }}
+                {{ range .FeaturedPost }}
                 <section class="content__featured-post">
-                    <a class="content__featured-posts-first-link" href="the-road-ahead.html">
-                        {{ range .Post1 }}
+                    <a class="content__featured-posts-first-link" href="/post">
                         <div>
-                            <img class="content__featured-posts-background" src="{{ .Background }}" alt="">
+                            <img class="content__featured-posts-background" src="{{ .Imageurl }}" alt="">
                             <p class="content__featured-posts-title">{{ .Title }}</p>
                             <p class="content__featured-posts-text">{{ .Subtitle }}</p>
-                            {{ range .PostInfo }}
                             <div class="content__featured-posts-inf">
-                                <img class="content__featured-posts-inf-img" src="{{ .Image }}" alt="Mat-Vogles.svg">
-                                <span class="content__featured-posts-inf-author">{{ .Name }}</span>
-                                <span class="content__featured-posts-inf-date">{{ .Date }}</span>
+                                <img class="content__featured-posts-inf-img" src="{{ .Authorurl }}" alt="Mat-Vogles.svg">
+                                <span class="content__featured-posts-inf-author">{{ .Author }}</span>
+                                <span class="content__featured-posts-inf-date">{{ .Publishdate }}</span>
                             </div>
-                            {{ end }}
                         </div>
-                        {{ end }}
                     </a>
-                </section>
-                <section class="content__featured-post">   
-                    {{ range .Post2 }}
-                    <div>
-                        <img class="content__featured-posts-background" src="{{ .Background }}" alt="">
-                        <span class="content__featured-posts-second-adv"><p class="content__featured-posts-second-adv-text">Adventure</p></span>
-                        <p class="content__featured-posts-title">{{ .Title }}</p>
-                        <p class="content__featured-posts-text">{{ .Subtitle }}</p>
-                        {{ range .PostInfo }}
-                        <div class="content__featured-posts-inf">
-                            <img class="content__featured-posts-inf-img" src="{{ .Image }}" alt="Mat-Vogles.svg">
-                            <span class="content__featured-posts-inf-author">{{ .Name }}</span>
-                            <span class="content__featured-posts-inf-date">{{ .Date }}</span>
-                        </div>
-                        {{ end }}
-                    </div>
-                    {{ end }}
                 </section>
                 {{ end }}
             </div> 
         </article>
-        {{ end }}
-        {{ range .MostRecent }}
         <article class="content__most-recent">
             <header class="content__most-recent-header">
-                <h2 class="content__most-recent-header-title">{{ .Title }}</h2>
+                <h2 class="content__most-recent-header-title">{{ .MostRecentTitle }}</h2>
             </header>
-            {{ range .Posts }}
             <div class="content__most-recent-posts">
-                {{ range .Post1 }}
+                {{ range .MostRecentPost }}
                 <div class="content__most-recent-post">
-                    <img class="content__most-recent-post-img" src="{{ .Background }}" alt="Still-Stading-background.jpg">
+                    <img class="content__most-recent-post-img" src="{{ .Imageurl }}" alt="Still-Stading-background.jpg">
                     <div class="content__most-recent-post-main">
                         <p class="content__most-recent-post-main-title">{{ .Title }}</p>
                         <p class="content__most-recent-post-main-text">{{ .Subtitle }}</p>
                     </div>
-                    {{ range .PostInfo }}
                     <div class="content__most-recent-post-inf">
-                        <img class="content__most-recent-post-inf-img" src="{{ .Image }}" alt="William-wong.svg">
-                        <span class="content__most-recent-post-inf-author">{{ .Name }}</span>
-                        <span class="content__most-recent-post-inf-date">{{ .Date }}</span>
+                        <img class="content__most-recent-post-inf-img" src="{{ .Authorurl }}" alt="William-wong.svg">
+                        <span class="content__most-recent-post-inf-author">{{ .Author }}</span>
+                        <span class="content__most-recent-post-inf-date">{{ .Publishdate }}</span>
                     </div>
-                    {{ end }}
-                </div>
-                {{ end }}   
-                {{ range .Post2 }}
-                <div class="content__most-recent-post">
-                    <img class="content__most-recent-post-img" src="{{ .Background }}" alt="Still-Stading-background.jpg">
-                    <div class="content__most-recent-post-main">
-                        <p class="content__most-recent-post-main-title">{{ .Title }}</p>
-                        <p class="content__most-recent-post-main-text">{{ .Subtitle }}</p>
-                    </div>
-                    {{ range .PostInfo }}
-                    <div class="content__most-recent-post-inf">
-                        <img class="content__most-recent-post-inf-img" src="{{ .Image }}" alt="William-wong.svg">
-                        <span class="content__most-recent-post-inf-author">{{ .Name }}</span>
-                        <span class="content__most-recent-post-inf-date">{{ .Date }}</span>
-                    </div>
-                    {{ end }}
-                </div>
-                {{ end }}
-                {{ range .Post3 }}
-                <div class="content__most-recent-post">
-                    <img class="content__most-recent-post-img" src="{{ .Background }}" alt="Still-Stading-background.jpg">
-                    <div class="content__most-recent-post-main">
-                        <p class="content__most-recent-post-main-title">{{ .Title }}</p>
-                        <p class="content__most-recent-post-main-text">{{ .Subtitle }}</p>
-                    </div>
-                    {{ range .PostInfo }}
-                    <div class="content__most-recent-post-inf">
-                        <img class="content__most-recent-post-inf-img" src="{{ .Image }}" alt="William-wong.svg">
-                        <span class="content__most-recent-post-inf-author">{{ .Name }}</span>
-                        <span class="content__most-recent-post-inf-date">{{ .Date }}</span>
-                    </div>
-                    {{ end }}
-                </div>
-                {{ end }}
-                {{ range .Post4 }}
-                <div class="content__most-recent-post">
-                    <img class="content__most-recent-post-img" src="{{ .Background }}" alt="Still-Stading-background.jpg">
-                    <div class="content__most-recent-post-main">
-                        <p class="content__most-recent-post-main-title">{{ .Title }}</p>
-                        <p class="content__most-recent-post-main-text">{{ .Subtitle }}</p>
-                    </div>
-                    {{ range .PostInfo }}
-                    <div class="content__most-recent-post-inf">
-                        <img class="content__most-recent-post-inf-img" src="{{ .Image }}" alt="William-wong.svg">
-                        <span class="content__most-recent-post-inf-author">{{ .Name }}</span>
-                        <span class="content__most-recent-post-inf-date">{{ .Date }}</span>
-                    </div>
-                    {{ end }}
-                </div>
-                {{ end }}
-                {{ range .Post5 }}
-                <div class="content__most-recent-post">
-                    <img class="content__most-recent-post-img" src="{{ .Background }}" alt="Still-Stading-background.jpg">
-                    <div class="content__most-recent-post-main">
-                        <p class="content__most-recent-post-main-title">{{ .Title }}</p>
-                        <p class="content__most-recent-post-main-text">{{ .Subtitle }}</p>
-                    </div>
-                    {{ range .PostInfo }}
-                    <div class="content__most-recent-post-inf">
-                        <img class="content__most-recent-post-inf-img" src="{{ .Image }}" alt="William-wong.svg">
-                        <span class="content__most-recent-post-inf-author">{{ .Name }}</span>
-                        <span class="content__most-recent-post-inf-date">{{ .Date }}</span>
-                    </div>
-                    {{ end }}
-                </div>
-                {{ end }}
-                {{ range .Post6 }}
-                <div class="content__most-recent-post">
-                    <img class="content__most-recent-post-img" src="{{ .Background }}" alt="Still-Stading-background.jpg">
-                    <div class="content__most-recent-post-main">
-                        <p class="content__most-recent-post-main-title">{{ .Title }}</p>
-                        <p class="content__most-recent-post-main-text">{{ .Subtitle }}</p>
-                    </div>
-                    {{ range .PostInfo }}
-                    <div class="content__most-recent-post-inf">
-                        <img class="content__most-recent-post-inf-img" src="{{ .Image }}" alt="William-wong.svg">
-                        <span class="content__most-recent-post-inf-author">{{ .Name }}</span>
-                        <span class="content__most-recent-post-inf-date">{{ .Date }}</span>
-                    </div>
-                    {{ end }}
                 </div>
                 {{ end }}
             </div>
-            {{ end }}
         </article>
-        {{ end }}
     </div>
-    {{ end }}
     {{ range .Down}}
     <div class="down">
         <img class="down__background-img" src="{{ .Background }}" alt="">
