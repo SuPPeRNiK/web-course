@@ -50,7 +50,14 @@
 
 .navbar__elem{
     text-decoration: none;
-    margin: 27px;
+    color: rgba(46, 46, 46, 1);
+    margin: 27px;   
+}
+
+.navbar__elem:hover{
+    color: rgb(167, 167, 167);
+    transition-property: color;
+    transition: 300ms; 
 }
 
 .headline{

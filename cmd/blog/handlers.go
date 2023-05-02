@@ -307,7 +307,7 @@ func downheader() []downheaderdata {
 func posttop() []posttopdata {
 	return []posttopdata{
 		{
-			Header:   block(),
+			Header:   postblock(),
 			Title:    "The Road Ahead",
 			Subtitle: "The road ahead might be paved - it might not be.",
 		},
@@ -325,6 +325,15 @@ func postpage() []postcontentdata {
 			P3: "In advance of the dogs, on wide snowshoes, toiled a man. At the rear of the sled toiled a second man. On the sled, in the box, lay a third man whose toil was over,—a man whom the Wild had conquered and beaten down until he would never move nor struggle again. It is not the way of the Wild to like movement. Life is an offence to it, for life is movement; and the Wild aims always to destroy movement. It freezes the water to prevent it running to the sea; it drives the sap out of the trees till they are frozen to their mighty hearts; and most ferociously and terribly of all does the Wild harry and crush into submission man—man who is the most restless of life, ever in revolt against the dictum that all movement must in the end come to the cessation of movement.",
 
 			P4: "But at front and rear, unawed and indomitable, toiled the two men who were not yet dead. Their bodies were covered with fur and soft-tanned leather. Eyelashes and cheeks and lips were so coated with the crystals from their frozen breath that their faces were not discernible. This gave them the seeming of ghostly masques, undertakers in a spectral world at the funeral of some ghost. But under it all they were men, penetrating the land of desolation and mockery and silence, puny adventurers bent on colossal adventure, pitting themselves against the might of a world as remote and alien and pulseless as the abysses of space.",
+		},
+	}
+}
+
+func postblock() []blockdata {
+	return []blockdata{
+		{
+			Logo:   "../static/Sources/Backgrounds/Escape2.svg",
+			Navbar: navbardata(),
 		},
 	}
 }
