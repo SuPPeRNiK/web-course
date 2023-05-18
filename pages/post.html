@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Blog article</title>
+        <link href="../static/post.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div id="container">
+            {{ range .Top }}
+                <header class="header wrapper">
+                    {{ range .Header }}
+                    <img src="{{ .Logo }}" alt="Escape.">
+                    {{ range .Navbar }}
+                        <nav class="nav">
+                            <ul class="nav__ul">
+                                <li><a class="nav__link" href="">{{ .First }}</a></li>
+                                <li><a class="nav__link" href="">{{ .Second }}</a></li>
+                                <li><a class="nav__link" href="">{{ .Third }}</a></li>
+                                <li><a class="nav__link" href="">{{ .Fourth }}</a></li>
+                            </ul>
+                        </nav> 
+                    {{ end }}
+                    {{ end }}
+                </header>
+            {{ end }}
+            {{ range .PostContent }}
+                <section class="main">
+                    <h1 class="main__header">{{ .Title }}</h1>
+                    <p class="main__phrase">{{ .Subtitle }}</p>
+                    <img class="main__image" src="{{ .Image }}" alt="The Road Ahead">
+                    <div class="main__text wrapper">
+                        <p class="main__text-fragment">{{ .Content }}</p>
+                    </div>
+                </section>
+            {{ end }}
+            {{ range .Down }}
+                <footer class="footer">
+                    <img class="footer__image" src="{{ .Background }}" alt="footer">
+                    {{ range .Header }}
+                    <h2 class="footer__title z-top">{{ .Title }}</h2>
+                    <hr class="footer__line z-top">
+                    <form class="footer__field-for-email z-top">
+                        <input class="footer__entry-field" type="text" placeholder="Enter your email address">
+                        <button class="footer__button-sumbit">{{ .Button }}</button>
+                    </form>
+                    {{ end }}
+                    <div class="footer__bottom z-top">
+                        {{ range .Footer }}
+                            <div class="footer__bottom-links wrapper">
+                                <img src="{{ .Logo }}" alt="Escape.">
+                                {{ range .Navbar }}
+                                    <nav class="nav">
+                                        <ul class="nav__ul">
+                                            <li><a class="nav__link nav__link_footer" href="">{{ .First }}</a></li>
+                                            <li><a class="nav__link nav__link_footer" href="">{{ .Second }}</a></li>
+                                            <li><a class="nav__link nav__link_footer" href="">{{ .Third }}</a></li>
+                                            <li><a class="nav__link nav__link_footer" href="">{{ .Fourth }}</a></li>
+                                        </ul>
+                                    </nav>    
+                                {{ end }}
+                            </div>
+                        {{ end }}
+                    </div>   
+                </footer>
+            {{ end }}
+        </div>    
+    </body>
+</html>

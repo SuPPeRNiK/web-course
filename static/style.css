@@ -197,10 +197,6 @@
     height: 280px;
 }
 
-.content__featured-posts-link{
-    text-decoration: none;
-}
-
 .content__featured-posts-title{
     position: absolute;
     z-index: 2;
@@ -352,6 +348,10 @@
     margin-left: calc(50% - 940px/2);
 }
 
+.content__mostrecent-posts-first-link{
+    text-decoration: none;
+}
+
 .content__most-recent-header-title{
     padding-top: 60px;
     margin-bottom: 0px;
@@ -414,7 +414,8 @@
 }
 
 .content__most-recent-post-main-text{
-    margin-top: 41px;
+    margin-top: 0px;
+    padding-top: 41px;
     margin-left: 13px;
     margin-right: 13px;
     font-family: 'Oxygen';
