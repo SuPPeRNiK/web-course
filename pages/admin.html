@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Escape.Authors</title>
+        <link href="../static/css/admin.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+        <script defer src="../static/js/admin.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <header class="header">
+                {{ range .Header }}
+                    <div class="header__elements wrapper">
+                        <img class="header__escape" src="{{ .Logo }}" alt="ESCAPE.author">
+                        <div class="header__avatar-and-exit">
+                            <img class="header__avatar" src="{{ .Avatar }}" alt="avatar">
+                            <a href="{{ .ExitURL }}">
+                                <img class="header__exit" src="{{ .Exit }}" alt="logout">
+                            </a>
+                        </div>
+                    </div>
+                {{ end }}
+            </header>
+            <section class="main">
+                {{ range .MainTop}}
+                    <article class="main-top wrapper">
+                        <div class="main-top__info">
+                            <div>
+                                <h1 class="main-top__title">{{ .Title }}</h1>
+                                <p class="main-top__subtitle">{{ .Subtitle }}</p>                       
+                            </div>
+                            <button type="submit" class="main-top__button" onclick="Click()">{{ .Button }}</button>
+                        </div>
+                        <div id="massage"></div>
+                    </article>
+                {{ end }}
+                <article class="data wrapper">
+                    {{ range .MainInfo}}
+                        <div class="main-info">
+                            <h2 class="main-info__title">{{ .Title }}</h2>
+                            <div class="main-info__form">
+                                {{ range .Fields }}
+                                    <form class="main-info__fields-for-entering">
+                                        <div id="Title-block" class="main-info__field-title">
+                                            <p class="main-info__fields-title">{{ .Title }}</p>
+                                            <input id="Title" class="main-info__fields" type="text" placeholder="New post" onfocus="Select('Title')" onblur="NotSelect('Title')">
+                                        </div>
+                                        <div id="Subtitle-block" class="main-info__field-description">
+                                            <p class="main-info__fields-title">{{ .Description }}</p>
+                                            <input id="Subtitle" class="main-info__fields" type="text" placeholder="Please, enter any description" onfocus="Select('Subtitle')" onblur="NotSelect('Subtitle')">
+                                        </div>
+                                        <div id="Author-name-block" class="main-info__field-author-name">
+                                            <p class="main-info__fields-title">{{ .AuthorName }}</p>
+                                            <input id="Author-name" class="main-info__field-for-author-name" type="text" onfocus="Select('Author-name')" onblur="NotSelect('Author-name')">
+                                        </div>
+                                        <div>
+                                            <p class="main-info__fields-title">{{ .AuthorPhoto }}</p>
+                                            <div id="author-photo-block" class="main-info__field-author-photo">
+                                                <input id="author-photo" type="file" accept=".png, .jpeg, .jpg" style="visibility:hidden; position: absolute;" onchange ="ChangeIcon()">                         
+                                                <label id="author-label" class="main-info__label" for="author-photo">
+                                                    <img src="{{ .AuthorPhotoURL }}" alt="Avatar">
+                                                    <p class="main-info__upload">{{ .Upload }}</p>
+                                                </label>
+                                                <label id="remove-author" class="main-info__label" onclick="RemoveIcon()"></label>
+                                            </div> 
+                                        </div>
+                                        <div class="main-info__field-data">
+                                            <p class="main-info__fields-title">{{ .Date }}</p>
+                                            <input id="data" class="main-info__fields" type="date" onchange="datachange()">
+                                        </div>
+                                        <div>
+                                            <p class="main-info__fields-title">{{ .TitleImage }}</p>
+                                            <div id="big-block-image" class="main-info__field-hero-image">
+                                                <div class="main-info__update-remove-label">
+                                                    <label id="big-image-label" for="big-hero-image" class="main-info__label">
+                                                        <img src="{{ .BigImageURL }}" alt="big image">
+                                                    </label>
+                                                    <label id="big-remove-image" class="main-info__label" onclick="DeleteImage('big')"></label>
+                                                </div>
+                                                <p class="main-info__fields-title main-info__fields-note">{{ .BigNote }}</p>
+                                                <input id="big-hero-image" type="file" accept=".png, .jpeg, .jpg"  style="visibility: hidden; position: absolute;" onchange="ChangeImage('big')">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p class="main-info__fields-title">{{ .TitleImage }}</p>
+                                            <div id="small-block-image" class="main-info__field-hero-image">
+                                                <div class="main-info__update-remove-label">
+                                                    <label id="small-image-label" for="small-hero-image" class="main-info__label">
+                                                        <img src="{{ .SmallImageURL }}" alt="small image">
+                                                    </label>
+                                                    <label id="small-remove-image" class="main-info__label" onclick="DeleteImage('small')"></label>
+                                                </div>
+                                                <p class="main-info__fields-title main-info__fields-note">{{ .SmallNote }}</p>
+                                                <input id="small-hero-image" type="file" accept=".png, .jpeg, .jpg"  style="visibility: hidden; position: absolute;" onchange="ChangeImage('small')">
+                                             </div>
+                                        </div>
+                                    </form>
+                                {{ end }}
+                                {{ range .Preview}}
+                                <div class="main-info__preview">
+                                    {{ range .Article }}
+                                        <p class="main-info__article-label">{{ .Label }}</p>
+                                        <div class="main-info__article-preview"> 
+                                            <img class="main-info__article-preview-frame" src="{{ .FrameURL }}" alt="article frame">
+                                            <h2 id="preview-title-article" class="main-info__article-title z-top">{{ .Title }}</h2>
+                                            <p id="preview-subtitle-article" class="main-info__article-description z-top">{{ .Subtitle }}</p>
+                                            <img id="preview-big-image" class="main-info__article-image z-top" src="{{ .Imageurl }}" alt="Big Image">
+                                            <div class="main-info__article-gradient z-top"></div>
+                                        </div>
+                                    {{ end }}
+                                    {{ range .PostCard }}
+                                        <p class="main-info__post-card-label">{{ .Label }}</p>
+                                        <div class="main-info__post-card-preview">
+                                            <img class="main-info__post-card-preview-frame" src="{{ .FrameURL }}" alt="post card frame">
+                                            <div class="main-info__post-card-preview-elements z-top">
+                                                <img id="preview-small-image" class="main-info__post-card-image" src="{{ .Imageurl }}" alt="Small Image">
+                                                <div class="main-info__border">
+                                                    <h2 id="preview-title" class="main-info__post-card-title">{{ .Title }}</h2>
+                                                    <p id="preview-subtitle" class="main-info__post-card-description">{{ .Subtitle }}</p>
+                                                </div>
+                                                <div class="main-info__post-info main-info__border">
+                                                    <img id="preview-author-photo" class="main-info__post-card-author-photo" src="{{ .AuthorPhotoURL }}" alt="author">
+                                                    <p id="preview-author-name" class="main-info__post-card-author-data">{{ .AuthorName }}</p>
+                                                    <p id="preview-data" class="main-info__post-card-author-data main-info_post-card-data">{{ .Data }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="main-info__post-card-gradient-vertical z-top"></div>
+                                            <div class="main-info__post-card-gradient-gorizontal z-top"></div>
+                                        </div>
+                                    {{ end }}
+                                </div>
+                                {{ end }}
+                            </div>
+                        </div>
+                    {{ end }}
+                    {{ range .Content }}
+                        <div class="content">
+                            <h2 class="content__title">{{ .Title }}</h2>
+                            <div class="content__text-area">
+                                <p class="content__comment">{{ .Comment }}</p>
+                                <textarea id="content" class="content__field-for-content" placeholder="Type anything you want ..."  onchange="ChangeContent()"></textarea>
+                            </div>
+                        </div>
+                    {{ end }}
+                </article>
+            </section>
+        </div>
+    </body>
+</html>

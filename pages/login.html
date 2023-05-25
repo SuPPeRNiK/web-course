@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Страница авторизации</title>
+        <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+        <link href="../static/css/login.css" rel="stylesheet">
+        <script defer src="../static/js/login.js"></script>
+    </head>
+    <body>
+        <img class="background" src="{{ .Background }}">  
+        <div id="container">
+            {{ range .Header }}
+                <header class="header z-top">
+                    <img class="header__escape" src="{{ .Escape }}" alt="Escape Author">
+                    <p class="header__title">{{ .Title }}</p>
+                </header>
+            {{ end }}
+            {{ range .Main }}
+                <section class="main z-top">
+                    <h1 class="main__title">{{ .Title }}</h1>
+                    <form class="main__form">
+                        <div id="massage"></div>
+                        <div id="login_block" class="main__email">
+                            <p class="main__comment">{{ .Email }}</p>
+                            <input id="login_field" class="main__field" onfocus="Select('login')" onblur="NotSelect('login')" type="email">
+                        </div>
+                        <div id="pass_block" class="main__pass">
+                            <p class="main__comment">{{ .Pass }}</p>
+                            <div class="main__pasword-field">
+                                <input id="pass_field" class="main__field main__field_pass" onfocus="Select('pass')" onblur="NotSelect('pass')" type="password">
+                                <img onclick="pass_visibility()" class="main__eye" src="../static/svg_files/eye.svg" alt="eye">
+                            </div>
+                        </div>
+                    </form>
+                    <button class="main__button" onclick="Click()">{{ .Button }}</button>
+                </section>
+            {{ end }}
+        </div>
+    </body>
+</html>

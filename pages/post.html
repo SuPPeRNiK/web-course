@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Blog article</title>
-        <link href="../static/post.css" rel="stylesheet">
+        <link href="../static/css/post.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
     </head>
@@ -16,7 +16,7 @@
                     {{ range .Navbar }}
                         <nav class="nav">
                             <ul class="nav__ul">
-                                <li><a class="nav__link" href="">{{ .First }}</a></li>
+                                <li><a class="nav__link" href="/home">{{ .First }}</a></li>
                                 <li><a class="nav__link" href="">{{ .Second }}</a></li>
                                 <li><a class="nav__link" href="">{{ .Third }}</a></li>
                                 <li><a class="nav__link" href="">{{ .Fourth }}</a></li>

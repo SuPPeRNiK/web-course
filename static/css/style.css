@@ -141,7 +141,8 @@
 
 .content{
     background-color: rgba(247, 247, 247, 1);
-    height: 1255px; 
+    height: auto;
+    padding-bottom: 10px; 
 }
 
 .content__featured{
@@ -258,28 +259,33 @@
     margin-left: 268px;
 }
 
-.content__featured-posts-second-adv{
-    position: absolute;
+.featured-posts__other-elements
+{
     z-index: 2;
     margin-left: 20px;
-    margin-top: 20px;
-    background: #DD783F;
-    border-radius: 2px;
-    height: 26px;
-    width: 87px;
-    text-align: center; 
+    margin-right: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
 }
 
-.content__featured-posts-second-adv-text{
-    top: 30px;
+.featured-posts__theme
+{
+    height: 26px;
+    border: 0;
+    margin-bottom: 234px;
+    position: absolute;
+}
+
+.featured-posts__theme-label
+{
+    font-size: 12px;
+    line-height: 13px;
+    color: #ffffff;
     font-family: 'Oxygen';
     font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    margin: 0;
-    margin-top: 6px;
+    font-size: 10px;
     text-transform: uppercase;
-    color: #FFFFFF;
+    margin: 6px 10px 0 10px;
 }
 
 .content__featured-posts-title{
@@ -352,6 +358,27 @@
     text-decoration: none;
 }
 
+.most-recent__theme
+{
+    height: 26px;
+    border: 0;
+    margin: 10px 0 0 15px;
+    position: absolute;
+    border-radius: 5px;
+}
+
+.most-recent__theme-label
+{
+    font-size: 12px;
+    line-height: 13px;
+    color: #ffffff;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-size: 10px;
+    text-transform: uppercase;
+    margin: 6px 10px 0 10px;
+}
+
 .content__most-recent-header-title{
     padding-top: 60px;
     margin-bottom: 0px;
@@ -393,6 +420,8 @@
 
 .content__most-recent-post-img{
     margin-bottom: 1px;
+    width: 296px;
+    height: 150px;
 }
 
 .content__most-recent-post-main{
@@ -436,6 +465,9 @@
     position: absolute;
     margin-top: 12px;
     margin-left: 13px;
+    width: 26px;
+    height: 26px;
+    border-radius: 60px;
 }
 
 .content__most-recent-post-inf-author{
@@ -576,4 +608,28 @@
     text-transform: uppercase;
     margin-right: 270px;
     margin-top: 24px;
+}
+
+.adventure {
+    Background-color: #DD783F;
+}
+
+.relaxation {
+    background-color: #4AAEC2;
+}
+
+.photography {
+    background-color: #A872B7;
+}
+
+.nature {
+    background-color: #E6C728;
+}
+
+.vacation {
+    background-color: #D25F7C;
+}
+
+.travel {
+    background-color : #49AE5C;
 }
