@@ -79,7 +79,7 @@ function DataError()
     {
         let icon = document.createElement('img');
         icon.classList.add('main__icon');
-        icon.src = "../static/svg_files/alert_circle.svg";
+        icon.src = "../static/Sources/svg_files/alert_circle.svg";
         
         let text = document.createElement('p');
         text.classList.add('main__massage-text');

@@ -350,7 +350,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 	}
 
 	data := loginpage{
-		Background: "../static/images/login_background.png",
+		Background: "../static/Sources/Backgrounds/login_background.png",
 		Header:     LoginHeader(),
 		Main:       LoginMain(),
 	}
